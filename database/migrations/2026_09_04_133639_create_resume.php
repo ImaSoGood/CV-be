@@ -8,7 +8,7 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('resume', function (Blueprint $table) {
+        Schema::create('resumes', function (Blueprint $table) {
             $table->id();
             $table->string('position', 128)->nullable();
             $table->string('company', 128)->nullable();
@@ -20,7 +20,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('resume');
+        Schema::dropIfExists('resumes');
         Schema::enableForeignKeyConstraints();
     }
 };
