@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('resume_list', function (Blueprint $table) {
+        Schema::create('resume_works', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('resume_id')->nullable();
             $table->text('text')->nullable();
@@ -22,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('resume_list');
+        Schema::dropIfExists('resume_works');
         Schema::enableForeignKeyConstraints();
     }
 };
