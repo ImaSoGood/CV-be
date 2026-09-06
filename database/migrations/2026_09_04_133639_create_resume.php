@@ -13,6 +13,8 @@ return new class extends Migration
             $table->string('position', 128)->nullable();
             $table->string('company', 128)->nullable();
             $table->text('description')->nullable();
+            $table->date('started_at')->nullable();
+            $table->date('ended_at')->nullable();
             $table->timestamps();
         });
     }

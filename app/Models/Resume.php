@@ -14,6 +14,11 @@ class Resume extends Model
         'description',
     ];
 
+    protected $casts = [
+        'started_at' => 'date',
+        'ended_at' => 'date',
+    ];
+
     public $timestamps = true;
 
     public function works()
