@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\NavigationController;
+use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\ResumeController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/data', [ResumeController::class, 'GetResumeData']);
+Route::get('/resume', [ResumeController::class, 'GetResumeData']);
+Route::get('/owner', [OwnerController::class, 'GetOwnerData']);

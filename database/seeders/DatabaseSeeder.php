@@ -2,7 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Contact;
+use App\Models\Owner;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -11,41 +12,41 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $resumes = [
-    [
-        'position' => 'Senior PHP Developer',
-        'company' => 'IT Solutions LLC',
-        'description' => 'Разработка высоконагруженных веб-сервисов. Управление командой из 5 разработчиков.',
-        'started_at' => '2020-01-01',
-        'ended_at' => '2022-12-31',
-    ],
-    [
-        'position' => 'Full Stack Developer',
-        'company' => 'WebStudio Pro',
-        'description' => 'Создание SPA приложений на Vue.js + Laravel. Внедрение CI/CD.',
-        'started_at' => '2018-06-01',
-        'ended_at' => '2020-12-31',
-    ],
-    [
-        'position' => 'Backend Developer',
-        'company' => 'FinTech Systems',
-        'description' => 'Разработка микросервисной архитектуры для банковского ПО.',
-        'started_at' => '2016-03-01',
-        'ended_at' => '2018-05-31',
-    ],
-    [
-        'position' => 'DevOps Engineer',
-        'company' => 'Cloud Services Inc',
-        'description' => 'Настройка инфраструктуры AWS, Docker, Kubernetes.',
-        'started_at' => '2021-01-01',
-        'ended_at' => null, 
-    ],
-    [
-        'position' => 'Team Lead',
-        'company' => 'GameDev Studio',
-        'description' => 'Руководство отделом разработки игровых серверов.',
-        'started_at' => '2019-07-01',
-        'ended_at' => '2021-12-31',
-    ],
+            [
+                'position' => 'Senior PHP Developer',
+                'company' => 'IT Solutions LLC',
+                'description' => 'Разработка высоконагруженных веб-сервисов. Управление командой из 5 разработчиков.',
+                'started_at' => '2020-01-01',
+                'ended_at' => '2022-12-31',
+            ],
+            [
+                'position' => 'Full Stack Developer',
+                'company' => 'WebStudio Pro',
+                'description' => 'Создание SPA приложений на Vue.js + Laravel. Внедрение CI/CD.',
+                'started_at' => '2018-06-01',
+                'ended_at' => '2020-12-31',
+            ],
+            [
+                'position' => 'Backend Developer',
+                'company' => 'FinTech Systems',
+                'description' => 'Разработка микросервисной архитектуры для банковского ПО.',
+                'started_at' => '2016-03-01',
+                'ended_at' => '2018-05-31',
+            ],
+            [
+                'position' => 'DevOps Engineer',
+                'company' => 'Cloud Services Inc',
+                'description' => 'Настройка инфраструктуры AWS, Docker, Kubernetes.',
+                'started_at' => '2021-01-01',
+                'ended_at' => null,
+            ],
+            [
+                'position' => 'Team Lead',
+                'company' => 'GameDev Studio',
+                'description' => 'Руководство отделом разработки игровых серверов.',
+                'started_at' => '2019-07-01',
+                'ended_at' => '2021-12-31',
+            ],
         ];
 
         $works = [
@@ -102,5 +103,16 @@ class DatabaseSeeder extends Seeder
                 ]);
             }
         }
+
+        Owner::insert([
+            'name' => 'Vladimir Kovalev',
+            'position' => 'software engineer',
+        ]);
+
+        Contact::insert([
+            ['platform' => 'LinkedIn', 'link' => null, 'text' => 'LinkedIn'],
+            ['platrorm' => 'GitHub', 'link' => 'https://github.com/ImaSoGood', 'text' => 'GitHub'],
+            ['platform' => 'Mail', 'link' => null, 'text' => 'vladimir.a.kovalyov@mail.ru'],
+        ]);
     }
 }
