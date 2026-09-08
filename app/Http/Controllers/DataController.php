@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\ExperienceHelper;
 use App\Helpers\OwnerHelper;
 use App\Helpers\ResumeHelper;
 use App\Helpers\WorkHelper;
@@ -33,5 +34,14 @@ class DataController extends Controller
             return self::Response(false, 'Empty content or one of the blocks', 400);
         
         return self::Response(true, 'Success', 200, $work);
+    }
+
+    public function GetExperienceData()
+    {
+        $experience = ExperienceHelper::getExperienceData();
+        if(empty($experience) || empty($experience['experience']))
+            return self::Response(false, 'Empty content', 400);
+
+        return self::Response(true, 'Success', 200, $experience);
     }
 }

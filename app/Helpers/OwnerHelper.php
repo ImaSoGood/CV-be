@@ -15,7 +15,7 @@ class OwnerHelper
         if(!$owner || !$contacts)
             return null;
 
-        $result = [
+        return [
             'owner' => [
                 'name' => $owner->name,
                 'position' => $owner->position,
@@ -26,7 +26,5 @@ class OwnerHelper
                 ]),
             ],
         ];
-
-        return $result;
     }
 }

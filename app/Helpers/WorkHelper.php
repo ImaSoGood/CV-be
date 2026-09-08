@@ -12,7 +12,7 @@ class WorkHelper
         $technologies = Technology::all();
         $works = Work::all();
 
-        $result = [
+        return [
             'technology' => $technologies->map(fn($technology) => [
                 'title' => $technology->title,
                 'description' => $technology->description,
@@ -23,7 +23,5 @@ class WorkHelper
                 'text' => $work->text,
             ]),
         ];
-        
-        return $result;
     }
 }
