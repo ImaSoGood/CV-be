@@ -105,7 +105,7 @@ class DatabaseSeeder extends Seeder
         }
 
         Owner::insert([
-            'name' => 'Vladimir Kovalev',
+            'name' => 'Dave Jonson',
             'position' => 'software engineer',
         ]);
 
@@ -114,5 +114,63 @@ class DatabaseSeeder extends Seeder
             ['platrorm' => 'GitHub', 'link' => 'https://github.com/ImaSoGood', 'text' => 'GitHub'],
             ['platform' => 'Mail', 'link' => null, 'text' => 'vladimir.a.kovalyov@mail.ru'],
         ]);
+
+
+        $techStack = [
+            [
+                'title' => 'Frontend',
+                'description' => 'Разработка SPA с использованием Composition API и Pinia',
+                'items' => json_encode(['Vue 3', 'TypeScript', 'Tailwind CSS', 'Vite']),
+            ],
+            [
+                'title' => 'AI & Tools',
+                'description' => 'Использование ИИ для автоматизации кодинга, рефакторинга и генерации тестов',
+                'items' => json_encode(['ChatGPT', 'Claude', 'Copilot']),
+            ],
+            [
+                'title' => 'Backend',
+                'description' => 'Создание REST API и работа с базами данных',
+                'items' => json_encode(['Node.js', 'Python', 'PostgreSQL']),
+            ],
+            [
+                'title' => 'BUBUBU',
+                'description' => 'Создание REST API и работа с базами данных',
+                'items' => json_encode(['Node.js', 'Python', 'PostgreSQL']),
+            ],
+        ];
+
+        foreach ($techStack as $tech) {
+            DB::table('technologies')->insert([
+                'title' => $tech['title'],
+                'description' => $tech['description'],
+                'items' => $tech['items'],
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
+
+        $works = [
+            [
+                'title' => 'Общий опыт',
+                'text' => 'За время работы я освоил широкий спектр инструментов и подходов. В основном специализируюсь на frontend-разработке, но имею опыт и в смежных областях.'
+            ],
+            [
+                'title' => 'Использование ИИ в разработке',
+                'text' => 'Активно применяю ChatGPT и Copilot для ускорения рутинных задач: генерация шаблонов, рефакторинг, написание документации и тестов. Это позволяет сосредоточиться на архитектуре и сложных логических задачах.'
+            ],
+            [
+                'title' => 'Стек и инструменты',
+                'text' => 'Работаю с Vue 3 Composition API, TypeScript, Pinia, Vite. В backend-части использую Node.js и Python. Для стилей предпочитаю Tailwind CSS или обычный CSS с модулями.'
+            ],
+        ];
+
+        foreach ($works as $work) {
+            DB::table('work')->insert([
+                'title' => $work['title'],
+                'text' => $work['text'],
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
     }
 }
