@@ -10,5 +10,6 @@ Route::get('/work', [DataController::class, 'GetWorkData']);
 Route::get('/experience', [DataController::class, 'GetExperienceData']);
 
 Route::prefix('v1/{url}')->middleware('CheckAccessKey')->group(function() {
-    Route::get('/data', [PanelController::class, 'Test']);
+    Route::get('/time/left', [PanelController::class, 'Connection']);
+    Route::get('/data/all', [PanelController::class, 'GetAllData']);
 });

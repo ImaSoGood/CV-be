@@ -17,4 +17,17 @@ class ExperienceHelper
             ]),
         ];
     }
+
+    public static function getExperienceDataPanel()
+    {
+        $experience = Experience::all();
+
+        return [
+            'experience' => $experience->map(fn ($exp) => [
+                'id' => $exp->id,
+                'title' => $exp->title,
+                'text' => $exp->text,
+            ]),
+        ];
+    }
 }

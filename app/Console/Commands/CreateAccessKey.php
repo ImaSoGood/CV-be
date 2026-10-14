@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Helpers\AccessHelper;
+use App\Helpers\PanelHelper;
 use Illuminate\Console\Attributes\Description;
 use Illuminate\Console\Attributes\Signature;
 use Illuminate\Console\Command;
@@ -14,7 +14,7 @@ class CreateAccessKey extends Command
 {
     public function handle()
     {
-        $access = AccessHelper::generateKey();
+        $access = PanelHelper::generateKey();
 
         $this->info("URL: {$access['url']}");
         $this->info("Token: {$access['token']}");
