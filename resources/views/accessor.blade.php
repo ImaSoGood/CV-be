@@ -8,17 +8,17 @@
 </head>
 <body class="bg-gray-100 min-h-screen flex items-center justify-center">
     <div class="bg-white rounded-lg shadow-md p-6 w-full max-w-md">
-        <h2 class="text-xl font-bold mb-4">Введите ключ доступа</h2>
+        <h2 class="text-xl font-bold mb-4">Enter access key</h2>
 
         <input type="text"
                id="tokenInput"
-               placeholder="Ключ..."
+               placeholder="Key..."
                autocomplete="off"
                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4">
 
         <button id="submitBtn"
                 class="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded-lg transition disabled:opacity-50">
-            Войти
+            Enter
         </button>
 
         <div id="authError" class="hidden mt-3 text-red-600 text-sm"></div>
@@ -34,7 +34,7 @@
             if (!token) return;
 
             btn.disabled = true;
-            btn.textContent = 'Проверка...';
+            btn.textContent = 'Validating key...';
             err.classList.add('hidden');
 
             try {
@@ -53,15 +53,15 @@
                 if (data.success) {
                     location.reload();
                 } else {
-                    err.textContent = data.message || 'Неверный ключ';
+                    err.textContent = data.message || 'No matches..';
                     err.classList.remove('hidden');
                 }
             } catch {
-                err.textContent = 'Ошибка соединения';
+                err.textContent = 'Connection error';
                 err.classList.remove('hidden');
             } finally {
                 btn.disabled = false;
-                btn.textContent = 'Войти';
+                btn.textContent = 'Enter';
             }
         }
 

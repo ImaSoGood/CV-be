@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Middleware\AuthPanelMiddleware;
 use App\Http\Middleware\CheckAccessKey;
+use App\Http\Middleware\CheckTokenMiddleware;
+use App\Http\Middleware\CheckUrlMiddleware;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -16,7 +19,8 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->alias([
             'CheckAccessKey' => CheckAccessKey::class,
-            //'CheckUrl' => CheckUrl::class,
+            'CheckUrlMiddleware' => CheckUrlMiddleware::class,
+            'CheckTokenMiddleware' => CheckTokenMiddleware::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
