@@ -19,7 +19,11 @@ class OwnerHelper
             'owner' => [
                 'name' => $owner->name,
                 'position' => $owner->position,
+                'about' => $owner->about,
+                'picture_url' => $owner?->picture_url,
+                'achivements' => $owner?->achivements,
                 'contacts' => $contacts->map(fn($contact) => [
+                    'id' => $contact->id,
                     'platform' => $contact->platform,
                     'link' => $contact->link,
                     'text' => $contact->text,
@@ -40,6 +44,9 @@ class OwnerHelper
             'owner' => [
                 'name' => $owner->name,
                 'position' => $owner->position,
+                'about' => $owner->about,
+                'picture_url' => $owner?->picture_url,
+                'achivements' => $owner?->achivements,
                 'contacts' => $contacts->map(fn($contact) => [
                     'id' => $contact->id,
                     'platform' => $contact->platform,

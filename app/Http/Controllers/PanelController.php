@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Helpers\PanelHelper;
 use App\Models\Access;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class PanelController extends Controller

@@ -11,6 +11,13 @@ class Owner extends Model
     protected $fillable = [
         'name',
         'position',
+        'about',
+        'picture_url',
+        'achivements'
+    ];
+
+    protected $casts = [
+        'achivements' => 'array'
     ];
 
     public $timestamps = true;
