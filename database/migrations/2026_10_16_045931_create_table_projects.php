@@ -12,10 +12,13 @@ return new class extends Migration
         {
             $table->id();
             $table->string('name')->nullable();
-            $table->string('text')->nullable();
+            $table->text('text')->nullable();
             $table->string('picture_url')->nullable();
-            $table->json('settings')->nullable();
+            $table->boolean('show_home')->default(false)->nullable();
+            //$table->json('settings')->nullable();
             $table->unsignedBigInteger('group_id')->nullable();
+            $table->foreign('group_id')->references('id')->on('groups')
+                ->onDelete('set null');
             $table->timestamps();
         });
     }

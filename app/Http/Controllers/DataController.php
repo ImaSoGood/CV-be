@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\ExperienceHelper;
 use App\Helpers\OwnerHelper;
+use App\Helpers\ProjectHelper;
 use App\Helpers\ResumeHelper;
 use App\Helpers\WorkHelper;
 
@@ -43,5 +44,14 @@ class DataController extends Controller
             return self::Response(false, 'Empty content', 400);
 
         return self::Response(true, 'Success', 200, $experience);
+    }
+
+    public function GetGroupProjectsData()
+    {
+        $projects = ProjectHelper::getGroupProjects();
+        if(empty($projects) || empty($projects['groups']))
+            return self::Response(false, 'Empty content', 400);
+
+        return self::Response(true, 'Success', 200, $projects);
     }
 }

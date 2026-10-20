@@ -8,6 +8,7 @@ Route::get('/resume', [DataController::class, 'GetResumeData']);
 Route::get('/owner', [DataController::class, 'GetOwnerData']);
 Route::get('/work', [DataController::class, 'GetWorkData']);
 Route::get('/experience', [DataController::class, 'GetExperienceData']);
+Route::get('/group-projects', [DataController::class, 'GetGroupProjectsData']);
 
 Route::prefix('v1/{url}')->middleware('CheckAccessKey')->group(function() {
     Route::get('/time/left', [PanelController::class, 'Connection']);
