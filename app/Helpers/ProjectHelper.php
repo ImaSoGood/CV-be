@@ -23,6 +23,5 @@ class ProjectHelper
                 ]),
             ])
         ];
-        //dd($projects);
     }
 }

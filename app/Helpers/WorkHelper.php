@@ -17,6 +17,7 @@ class WorkHelper
                 'title' => $technology->title,
                 'description' => $technology->description,
                 'items' => $technology->items,
+                'show_home' => $technology->show_home,
             ]),
             'work' => $works->map(fn($work) => [
                 'title' => $work->title,
@@ -36,6 +37,7 @@ class WorkHelper
                 'title' => $technology->title,
                 'description' => $technology->description,
                 'items' => $technology->items,
+                'show_home' => $technology->show_home,
             ]),
             'work' => $works->map(fn($work) => [
                 'id' => $work,

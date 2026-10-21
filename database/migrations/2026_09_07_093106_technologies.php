@@ -12,6 +12,7 @@ return new class extends Migration
             $table->id();
             $table->string('title', 128)->nullable();
             $table->string('description')->nullable();
+            $table->boolean('show_home')->default(false)->nullable();
             $table->json('items')->nullable();
             $table->timestamps();
         });

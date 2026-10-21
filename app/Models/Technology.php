@@ -12,10 +12,12 @@ class Technology extends Model
         'title',
         'description',
         'items',
+        'show_home'
     ];
 
     protected $casts = [
         'items' => 'array',
+        'show_home' => 'boolean',
     ];
 
     public $timestamps = true;
