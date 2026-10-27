@@ -33,6 +33,8 @@ RUN composer install \
 
 RUN chown -R www-data:www-data storage bootstrap/cache
 
+RUN php artisan storage:link
+
 EXPOSE 9000
 
 CMD ["php-fpm"]

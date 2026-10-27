@@ -10,6 +10,18 @@ use App\Helpers\WorkHelper;
 
 class DataController extends Controller
 {
+    public function GetAllData()
+    {
+        $owner = OwnerHelper::getOwnerData();
+        $resume = ResumeHelper::getResumeData();
+        $work = WorkHelper::getWorkData();
+        $experience = ExperienceHelper::getExperienceData();
+        $projects = ProjectHelper::getGroupProjects();
+
+        return self::Response(true, 'Success', 200, 
+            [$owner, $resume, $work, $experience, $projects]);
+    }
+
     public function GetOwnerData()
     {
         $result = OwnerHelper::getOwnerData();
@@ -21,37 +33,37 @@ class DataController extends Controller
 
     public function GetResumeData()
     {
-        $resume = ResumeHelper::getResumeData();
-        if(empty($resume['resume']) || !count($resume['resume']))
+        $result = ResumeHelper::getResumeData();
+        if(empty($result['resume']) || !count($result['resume']))
             return self::Response(false, 'Empty content', 400);
         
-        return self::Response(true, 'Success', 200, $resume);
+        return self::Response(true, 'Success', 200, $result);
     }
 
     public function GetWorkData()
     {
-        $work = WorkHelper::getWorkData();
-        if(empty($work) || empty($work['technology']) || empty($work['work'])) 
+        $result = WorkHelper::getWorkData();
+        if(empty($result) || empty($result['technology']) || empty($result['work'])) 
             return self::Response(false, 'Empty content or one of the blocks', 400);
         
-        return self::Response(true, 'Success', 200, $work);
+        return self::Response(true, 'Success', 200, $result);
     }
 
     public function GetExperienceData()
     {
-        $experience = ExperienceHelper::getExperienceData();
-        if(empty($experience) || empty($experience['experience']))
+        $result = ExperienceHelper::getExperienceData();
+        if(empty($result) || empty($result['experience']))
             return self::Response(false, 'Empty content', 400);
 
-        return self::Response(true, 'Success', 200, $experience);
+        return self::Response(true, 'Success', 200, $result);
     }
 
     public function GetGroupProjectsData()
     {
-        $projects = ProjectHelper::getGroupProjects();
-        if(empty($projects) || empty($projects['groups']))
+        $result = ProjectHelper::getGroupProjects();
+        if(empty($result) || empty($result['groups']))
             return self::Response(false, 'Empty content', 400);
 
-        return self::Response(true, 'Success', 200, $projects);
+        return self::Response(true, 'Success', 200, $result);
     }
 }

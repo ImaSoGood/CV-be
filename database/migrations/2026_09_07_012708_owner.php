@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 128)->nullable();
             $table->string('position', 128)->nullable();
+            $table->string('cv_path', 256)->nullable();
             $table->timestamps();
         });
     }

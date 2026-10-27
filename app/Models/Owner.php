@@ -13,7 +13,8 @@ class Owner extends Model
         'position',
         'about',
         'picture_url',
-        'achivements'
+        'achivements',
+        'cv_path'
     ];
 
     protected $casts = [

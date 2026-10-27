@@ -22,6 +22,7 @@ class OwnerHelper
                 'about' => $owner->about,
                 'picture_url' => $owner?->picture_url,
                 'achivements' => $owner?->achivements,
+                'cv_path' => $owner?->cv_path,
                 'contacts' => $contacts->map(fn($contact) => [
                     'id' => $contact->id,
                     'platform' => $contact->platform,
